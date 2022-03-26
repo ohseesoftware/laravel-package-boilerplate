@@ -18,19 +18,19 @@
         "php": "^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.7",
+        "orchestra/testbench": "^7.2",
         "php-coveralls/php-coveralls": "^2.4",
         "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
         "psr-4": {
-            "OhSeeSoftware\\LaravelServerAnalytics\\": "src"
+            "OhSeeSoftware\\LaravelPackageBoilerplate\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OhSeeSoftware\\LaravelServerAnalytics\\Tests\\": "tests"
+            "OhSeeSoftware\\LaravelPackageBoilerplate\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,10 +43,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OhSeeSoftware\\LaravelServerAnalytics\\LaravelServerAnalyticsServiceProvider"
+                "OhSeeSoftware\\LaravelPackageBoilerplate\\LaravelPackageBoilerplateServiceProvider"
             ],
             "aliases": {
-                "LaravelServerAnalytics": "OhSeeSoftware\\LaravelServerAnalytics\\ServerAnalytics"
+                "LaravelPackageBoilerplate": "OhSeeSoftware\\LaravelPackageBoilerplate\\ServerAnalytics"
             }
         }
     }
