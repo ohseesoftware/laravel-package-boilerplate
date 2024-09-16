@@ -7,29 +7,28 @@ jobs:
         steps:
             - uses: actions/checkout@master
             - name: Checkout
-              if: github.ref == 'refs/heads/master'
+              if: github.ref == 'refs/heads/main'
               run: git checkout "${GITHUB_REF:11}"
             - name: Composer Install
               run: composer install
             - name: PHPCS
               run: ./vendor/bin/phpcs src tests
             - name: Run Tests
-              run: ./vendor/bin/phpunit
+              run: ./vendor/bin/pest
+
     release:
         name: Release
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         needs: test
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v1
+              uses: actions/checkout@master
             - name: Setup Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@latest
               with:
-                  node-version: 12
-            - name: Install dependencies
-              run: yarn install
+                  node-version: 20
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: npx semantic-release@15
+              run: npx semantic-release@latest
