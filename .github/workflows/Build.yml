@@ -17,7 +17,7 @@ jobs:
                 coverage: none
             - name: Composer Install
               run: composer install
-            - name: php-cs-fixer dry run
+            - name: PHP Linting
               run: composer lint
             - name: Run Tests
               run: ./vendor/bin/pest
