@@ -17,8 +17,8 @@ jobs:
                 coverage: none
             - name: Composer Install
               run: composer install
-            - name: PHPCS
-              run: ./vendor/bin/phpcs src
+            - name: php-cs-fixer dry run
+              run: composer lint
             - name: Run Tests
               run: ./vendor/bin/pest
 
